@@ -495,7 +495,7 @@ Index.prototype.getMatchingIds = function( selector ){
   if( matchingIdSet ){
     return matchingIdSet.values();
   }
-  return [];
+  return null;
 }
 
 // IndexKey is a projection of the index fields of the doc onto an array
@@ -514,6 +514,7 @@ Index.prototype.selectorHasMatchingKeys = function canUseIndex( selector ){
   // XXX from Underscore.String (http://epeli.github.com/underscore.string/)
   // quickfix to stop travis tests from failing because str.startsWith is undefined
   var startsWith = function(str, starts) {
+    if (!str) return false;
     return str.length >= starts.length && str.substring(0, starts.length) === starts;
   };
 
@@ -528,7 +529,10 @@ Index.prototype.selectorHasMatchingKeys = function canUseIndex( selector ){
     if ( typeof selector[ key ] === 'object' ){
       if ( selector[ key ] === null ){
         return true;
-      } else {
+      } else if (_.isRegExp(selector[key])) {
+        return false;
+      }
+      else {
         return !_.any( _.keys( selector[ key ] ), startsWithDollar );
       }
     }
