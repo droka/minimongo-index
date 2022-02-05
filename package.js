@@ -1,8 +1,8 @@
 Package.describe({
-  name: 'helfer:minimongo-index',
+  name: 'droka:minimongo-index',
   summary: "Add indexing to Meteor's minimongo",
   git: "https://github.com/helfer/minimongo-index",
-  version: '0.0.1'
+  version: '0.0.2'
 });
 
 Package.onUse(function (api) {
