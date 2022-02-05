@@ -1,13 +1,12 @@
 Package.describe({
   name: 'droka:minimongo-index',
   summary: "Add indexing to Meteor's minimongo",
-  git: "https://github.com/helfer/minimongo-index",
+  git: "https://github.com/droka/minimongo-index",
   version: '0.0.2'
 });
 
 Package.onUse(function (api) {
   api.export('LocalCollection');
-  api.export('IdMap');
   api.export('IdSet');
   api.export('Index');
   api.versionsFrom('1.1.0.2');
@@ -20,7 +19,7 @@ Package.onUse(function (api) {
 
 Package.onTest(function (api) {
   api.use('minimongo', 'client');
-  api.use('helfer:minimongo-index', ['client', 'server']);
+  api.use('droka:minimongo-index', ['client', 'server']);
   api.use('test-helpers', 'client');
   api.use(['tinytest', 'underscore', 'ejson', 'ordered-dict',
            'random', 'tracker', 'reactive-var']);
