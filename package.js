@@ -7,7 +7,6 @@ Package.describe({
 
 Package.onUse(function (api) {
   api.export('LocalCollection');
-  api.export('IdMap');
   api.export('IdSet');
   api.export('Index');
   api.versionsFrom('1.1.0.2');
